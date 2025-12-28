@@ -19,6 +19,22 @@ const newUserSchema = new Schema({
         type: String,
         enum: ['user', 'food_partner'],
         default: 'user'
+    },
+    company_name: {
+        type: String,
+        required: false
+    },
+    address: {
+        type: String,
+        required: false
+    },
+    mobile: {
+        type: String,   
+        required: false
+    },
+    image: {
+        type: String,
+        required: false
     }
 }, { timestamps: true })
 

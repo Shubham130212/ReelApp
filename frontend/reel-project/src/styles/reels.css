@@ -1,0 +1,120 @@
+:root {
+  --reel-overlay-bg: linear-gradient(180deg, rgba(4, 7, 23, 0.05) 0%, rgba(4, 7, 23, 0.65) 60%, rgba(4, 7, 23, 0.95) 100%);
+  --reel-button-bg: rgba(255, 255, 255, 0.14);
+  --reel-button-hover: rgba(255, 255, 255, 0.28);
+}
+
+.reels-page {
+  height: 100vh;
+  background: radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.12), transparent 45%),
+    radial-gradient(circle at 80% 0%, rgba(6, 182, 212, 0.1), transparent 40%),
+    var(--bg, #050816);
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.reels-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.reel-card {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  scroll-snap-align: start;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.reel-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.1);
+  z-index: 1;
+}
+
+.reel-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 48px 20px 32px;
+  background: var(--reel-overlay-bg);
+  z-index: 2;
+}
+
+.reel-info {
+  max-width: 520px;
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+}
+
+.reel-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.55);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.reel-description {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 22px;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+}
+
+.reel-cta {
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #fff;
+  background: var(--reel-button-bg);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.reel-cta:hover {
+  background: var(--reel-button-hover);
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .reel-overlay {
+    padding: 64px 48px 48px;
+  }
+
+  .reel-description {
+    font-size: 1.5rem;
+  }
+
+  .reel-info {
+    text-align: left;
+  }
+}
