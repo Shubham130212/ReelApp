@@ -27,8 +27,7 @@ export default function Register(){
     }
 
     try {
-     const response=await axios.post('http://localhost:7000/api/auth/signup', payload,{withCredentials:true});
-     console.log('response',response.data);
+     await axios.post('http://localhost:7000/api/auth/signup', payload,{withCredentials:true});
      navigate("/user-login");
     } catch (err) {
       if (err.response) {

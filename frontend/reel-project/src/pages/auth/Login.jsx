@@ -28,9 +28,8 @@ export default function Login(){
       if (token) {
         localStorage.setItem('token', token)
       }
-      console.log('response', user_type)
       if(user_type==='user'){
-        navigate('/')
+        navigate('/feed')
       }
       else if(user_type==='food_partner'){
         navigate('/food-partner/create-food-partner')
